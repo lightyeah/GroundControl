@@ -16,3 +16,10 @@
 #define UDP_PORT                   45454
 #define CAR_ADDRESS                "10.2.7.42"
 #define SATELLITE_ADDRESS          "1.1.1.1"
+
+//for vlc
+#include <VLCQtCore/Common.h>
+#include <VLCQtCore/Instance.h>
+#include <VLCQtCore/Media.h>
+#include <VLCQtCore/MediaPlayer.h>
+#define FIXEDCARURL                "udp://@:34511"

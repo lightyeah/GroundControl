@@ -22,3 +22,5 @@ HEADERS  += mainwindow.h \
     udpcom.h
 
 FORMS    += mainwindow.ui
+
+LIBS     += -lVLCQtCore  -lVLCQtWidgets
