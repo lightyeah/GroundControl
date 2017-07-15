@@ -21,7 +21,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QRadioButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
@@ -29,7 +29,7 @@
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
-#include <VLCQtWidgets/WidgetVideo.h>
+#include "VLCQtWidgets/WidgetVideo.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -60,34 +60,33 @@ public:
     QPushButton *turnrightButton;
     QPushButton *backButton;
     QVBoxLayout *verticalLayout_2;
-    QRadioButton *stepRadioButton;
-    QRadioButton *sustainRadioButton;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label;
-    QLineEdit *distanceLineEdit;
-    QHBoxLayout *horizontalLayout;
     QLabel *label_2;
+    QLabel *label_3;
+    QHBoxLayout *horizontalLayout;
+    QLineEdit *speedLineEdit;
+    QLineEdit *distanceLineEdit;
     QLineEdit *angleLineEdit;
+    QSpacerItem *verticalSpacer;
     QWidget *satelliteTab;
     QGridLayout *gridLayout_6;
     QVBoxLayout *verticalLayout;
     QWidget *widget_2;
     QHBoxLayout *horizontalLayout_8;
     QGridLayout *gridLayout_4;
-    QPushButton *pushButton;
-    QPushButton *pushButton_4;
-    QPushButton *pushButton_5;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton_6;
-    QPushButton *pushButton_7;
-    QPushButton *pushButton_3;
-    QPushButton *pushButton_8;
-    QPushButton *pushButton_9;
+    QPushButton *sconnectButton;
+    QPushButton *sxAnglePlusButton;
+    QPushButton *sxAngleMinusButton;
+    QPushButton *spauseButton;
+    QPushButton *syAnglePlusButton;
+    QPushButton *syAngleMinusButton;
+    QPushButton *ssaveButton;
+    QPushButton *szAnglePlusButton;
+    QPushButton *szAngleMinusButton;
     QGridLayout *gridLayout_5;
-    QRadioButton *radioButton;
-    QRadioButton *radioButton_2;
     QLabel *label_6;
-    QSpinBox *spinBox;
+    QSpinBox *sangleSpinBox;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -96,7 +95,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(907, 518);
+        MainWindow->resize(571, 366);
         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -129,7 +128,7 @@ public:
         commandEdit->setObjectName(QStringLiteral("commandEdit"));
         sizePolicy.setHeightForWidth(commandEdit->sizePolicy().hasHeightForWidth());
         commandEdit->setSizePolicy(sizePolicy);
-        commandEdit->setStyleSheet(QStringLiteral("font: 25 12pt \"3ds Light\";"));
+        commandEdit->setStyleSheet(QStringLiteral("font: 9pt \"Courier New\";"));
 
         leftHorizontalLayout->addWidget(commandEdit);
 
@@ -154,6 +153,7 @@ public:
 
         tabWidget = new QTabWidget(centralWidget);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
+        tabWidget->setStyleSheet(QStringLiteral("font: 75 10pt \"3ds Light\";"));
         tabWidget->setIconSize(QSize(42, 42));
         carTab = new QWidget();
         carTab->setObjectName(QStringLiteral("carTab"));
@@ -247,24 +247,9 @@ public:
         horizontalLayout_3->addLayout(gridLayout);
 
         verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setSpacing(6);
+        verticalLayout_2->setSpacing(4);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        stepRadioButton = new QRadioButton(carTab);
-        stepRadioButton->setObjectName(QStringLiteral("stepRadioButton"));
-        sizePolicy.setHeightForWidth(stepRadioButton->sizePolicy().hasHeightForWidth());
-        stepRadioButton->setSizePolicy(sizePolicy);
-        stepRadioButton->setStyleSheet(QStringLiteral("font: 12pt \"Bernard MT Condensed\";"));
-
-        verticalLayout_2->addWidget(stepRadioButton);
-
-        sustainRadioButton = new QRadioButton(carTab);
-        sustainRadioButton->setObjectName(QStringLiteral("sustainRadioButton"));
-        sizePolicy.setHeightForWidth(sustainRadioButton->sizePolicy().hasHeightForWidth());
-        sustainRadioButton->setSizePolicy(sizePolicy);
-        sustainRadioButton->setStyleSheet(QStringLiteral("font: 12pt \"Bernard MT Condensed\";"));
-
-        verticalLayout_2->addWidget(sustainRadioButton);
-
+        verticalLayout_2->setContentsMargins(-1, -1, 0, -1);
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
@@ -274,42 +259,63 @@ public:
         label->setSizePolicy(sizePolicy);
         label->setStyleSheet(QStringLiteral("font: 12pt \"Bernard MT Condensed\";"));
 
-        horizontalLayout_2->addWidget(label);
+        horizontalLayout_2->addWidget(label, 0, Qt::AlignHCenter|Qt::AlignVCenter);
 
-        distanceLineEdit = new QLineEdit(carTab);
-        distanceLineEdit->setObjectName(QStringLiteral("distanceLineEdit"));
-        sizePolicy.setHeightForWidth(distanceLineEdit->sizePolicy().hasHeightForWidth());
-        distanceLineEdit->setSizePolicy(sizePolicy);
-
-        horizontalLayout_2->addWidget(distanceLineEdit);
-
-        horizontalLayout_2->setStretch(0, 1);
-        horizontalLayout_2->setStretch(1, 2);
-
-        verticalLayout_2->addLayout(horizontalLayout_2);
-
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setSpacing(6);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         label_2 = new QLabel(carTab);
         label_2->setObjectName(QStringLiteral("label_2"));
         sizePolicy.setHeightForWidth(label_2->sizePolicy().hasHeightForWidth());
         label_2->setSizePolicy(sizePolicy);
         label_2->setStyleSheet(QStringLiteral("font: 12pt \"Bernard MT Condensed\";"));
 
-        horizontalLayout->addWidget(label_2);
+        horizontalLayout_2->addWidget(label_2, 0, Qt::AlignHCenter|Qt::AlignVCenter);
+
+        label_3 = new QLabel(carTab);
+        label_3->setObjectName(QStringLiteral("label_3"));
+        sizePolicy.setHeightForWidth(label_3->sizePolicy().hasHeightForWidth());
+        label_3->setSizePolicy(sizePolicy);
+        label_3->setStyleSheet(QStringLiteral("font: 12pt \"Bernard MT Condensed\";"));
+
+        horizontalLayout_2->addWidget(label_3, 0, Qt::AlignHCenter|Qt::AlignVCenter);
+
+        horizontalLayout_2->setStretch(0, 1);
+        horizontalLayout_2->setStretch(1, 1);
+        horizontalLayout_2->setStretch(2, 1);
+
+        verticalLayout_2->addLayout(horizontalLayout_2);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        speedLineEdit = new QLineEdit(carTab);
+        speedLineEdit->setObjectName(QStringLiteral("speedLineEdit"));
+        sizePolicy.setHeightForWidth(speedLineEdit->sizePolicy().hasHeightForWidth());
+        speedLineEdit->setSizePolicy(sizePolicy);
+
+        horizontalLayout->addWidget(speedLineEdit, 0, Qt::AlignLeft|Qt::AlignVCenter);
+
+        distanceLineEdit = new QLineEdit(carTab);
+        distanceLineEdit->setObjectName(QStringLiteral("distanceLineEdit"));
+        sizePolicy.setHeightForWidth(distanceLineEdit->sizePolicy().hasHeightForWidth());
+        distanceLineEdit->setSizePolicy(sizePolicy);
+
+        horizontalLayout->addWidget(distanceLineEdit, 0, Qt::AlignLeft|Qt::AlignVCenter);
 
         angleLineEdit = new QLineEdit(carTab);
         angleLineEdit->setObjectName(QStringLiteral("angleLineEdit"));
         sizePolicy.setHeightForWidth(angleLineEdit->sizePolicy().hasHeightForWidth());
         angleLineEdit->setSizePolicy(sizePolicy);
 
-        horizontalLayout->addWidget(angleLineEdit);
+        horizontalLayout->addWidget(angleLineEdit, 0, Qt::AlignLeft|Qt::AlignVCenter);
 
         horizontalLayout->setStretch(0, 1);
-        horizontalLayout->setStretch(1, 2);
+        horizontalLayout->setStretch(1, 1);
+        horizontalLayout->setStretch(2, 1);
 
         verticalLayout_2->addLayout(horizontalLayout);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_2->addItem(verticalSpacer);
 
 
         horizontalLayout_3->addLayout(verticalLayout_2);
@@ -346,68 +352,68 @@ public:
         gridLayout_4 = new QGridLayout();
         gridLayout_4->setSpacing(6);
         gridLayout_4->setObjectName(QStringLiteral("gridLayout_4"));
-        pushButton = new QPushButton(satelliteTab);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        sizePolicy.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
-        pushButton->setSizePolicy(sizePolicy);
+        sconnectButton = new QPushButton(satelliteTab);
+        sconnectButton->setObjectName(QStringLiteral("sconnectButton"));
+        sizePolicy.setHeightForWidth(sconnectButton->sizePolicy().hasHeightForWidth());
+        sconnectButton->setSizePolicy(sizePolicy);
 
-        gridLayout_4->addWidget(pushButton, 0, 0, 1, 1);
+        gridLayout_4->addWidget(sconnectButton, 0, 0, 1, 1);
 
-        pushButton_4 = new QPushButton(satelliteTab);
-        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        sizePolicy.setHeightForWidth(pushButton_4->sizePolicy().hasHeightForWidth());
-        pushButton_4->setSizePolicy(sizePolicy);
+        sxAnglePlusButton = new QPushButton(satelliteTab);
+        sxAnglePlusButton->setObjectName(QStringLiteral("sxAnglePlusButton"));
+        sizePolicy.setHeightForWidth(sxAnglePlusButton->sizePolicy().hasHeightForWidth());
+        sxAnglePlusButton->setSizePolicy(sizePolicy);
 
-        gridLayout_4->addWidget(pushButton_4, 0, 1, 1, 1);
+        gridLayout_4->addWidget(sxAnglePlusButton, 0, 1, 1, 1);
 
-        pushButton_5 = new QPushButton(satelliteTab);
-        pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
-        sizePolicy.setHeightForWidth(pushButton_5->sizePolicy().hasHeightForWidth());
-        pushButton_5->setSizePolicy(sizePolicy);
+        sxAngleMinusButton = new QPushButton(satelliteTab);
+        sxAngleMinusButton->setObjectName(QStringLiteral("sxAngleMinusButton"));
+        sizePolicy.setHeightForWidth(sxAngleMinusButton->sizePolicy().hasHeightForWidth());
+        sxAngleMinusButton->setSizePolicy(sizePolicy);
 
-        gridLayout_4->addWidget(pushButton_5, 0, 2, 1, 1);
+        gridLayout_4->addWidget(sxAngleMinusButton, 0, 2, 1, 1);
 
-        pushButton_2 = new QPushButton(satelliteTab);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        sizePolicy.setHeightForWidth(pushButton_2->sizePolicy().hasHeightForWidth());
-        pushButton_2->setSizePolicy(sizePolicy);
+        spauseButton = new QPushButton(satelliteTab);
+        spauseButton->setObjectName(QStringLiteral("spauseButton"));
+        sizePolicy.setHeightForWidth(spauseButton->sizePolicy().hasHeightForWidth());
+        spauseButton->setSizePolicy(sizePolicy);
 
-        gridLayout_4->addWidget(pushButton_2, 1, 0, 1, 1);
+        gridLayout_4->addWidget(spauseButton, 1, 0, 1, 1);
 
-        pushButton_6 = new QPushButton(satelliteTab);
-        pushButton_6->setObjectName(QStringLiteral("pushButton_6"));
-        sizePolicy.setHeightForWidth(pushButton_6->sizePolicy().hasHeightForWidth());
-        pushButton_6->setSizePolicy(sizePolicy);
+        syAnglePlusButton = new QPushButton(satelliteTab);
+        syAnglePlusButton->setObjectName(QStringLiteral("syAnglePlusButton"));
+        sizePolicy.setHeightForWidth(syAnglePlusButton->sizePolicy().hasHeightForWidth());
+        syAnglePlusButton->setSizePolicy(sizePolicy);
 
-        gridLayout_4->addWidget(pushButton_6, 1, 1, 1, 1);
+        gridLayout_4->addWidget(syAnglePlusButton, 1, 1, 1, 1);
 
-        pushButton_7 = new QPushButton(satelliteTab);
-        pushButton_7->setObjectName(QStringLiteral("pushButton_7"));
-        sizePolicy.setHeightForWidth(pushButton_7->sizePolicy().hasHeightForWidth());
-        pushButton_7->setSizePolicy(sizePolicy);
+        syAngleMinusButton = new QPushButton(satelliteTab);
+        syAngleMinusButton->setObjectName(QStringLiteral("syAngleMinusButton"));
+        sizePolicy.setHeightForWidth(syAngleMinusButton->sizePolicy().hasHeightForWidth());
+        syAngleMinusButton->setSizePolicy(sizePolicy);
 
-        gridLayout_4->addWidget(pushButton_7, 1, 2, 1, 1);
+        gridLayout_4->addWidget(syAngleMinusButton, 1, 2, 1, 1);
 
-        pushButton_3 = new QPushButton(satelliteTab);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        sizePolicy.setHeightForWidth(pushButton_3->sizePolicy().hasHeightForWidth());
-        pushButton_3->setSizePolicy(sizePolicy);
+        ssaveButton = new QPushButton(satelliteTab);
+        ssaveButton->setObjectName(QStringLiteral("ssaveButton"));
+        sizePolicy.setHeightForWidth(ssaveButton->sizePolicy().hasHeightForWidth());
+        ssaveButton->setSizePolicy(sizePolicy);
 
-        gridLayout_4->addWidget(pushButton_3, 2, 0, 1, 1);
+        gridLayout_4->addWidget(ssaveButton, 2, 0, 1, 1);
 
-        pushButton_8 = new QPushButton(satelliteTab);
-        pushButton_8->setObjectName(QStringLiteral("pushButton_8"));
-        sizePolicy.setHeightForWidth(pushButton_8->sizePolicy().hasHeightForWidth());
-        pushButton_8->setSizePolicy(sizePolicy);
+        szAnglePlusButton = new QPushButton(satelliteTab);
+        szAnglePlusButton->setObjectName(QStringLiteral("szAnglePlusButton"));
+        sizePolicy.setHeightForWidth(szAnglePlusButton->sizePolicy().hasHeightForWidth());
+        szAnglePlusButton->setSizePolicy(sizePolicy);
 
-        gridLayout_4->addWidget(pushButton_8, 2, 1, 1, 1);
+        gridLayout_4->addWidget(szAnglePlusButton, 2, 1, 1, 1);
 
-        pushButton_9 = new QPushButton(satelliteTab);
-        pushButton_9->setObjectName(QStringLiteral("pushButton_9"));
-        sizePolicy.setHeightForWidth(pushButton_9->sizePolicy().hasHeightForWidth());
-        pushButton_9->setSizePolicy(sizePolicy);
+        szAngleMinusButton = new QPushButton(satelliteTab);
+        szAngleMinusButton->setObjectName(QStringLiteral("szAngleMinusButton"));
+        sizePolicy.setHeightForWidth(szAngleMinusButton->sizePolicy().hasHeightForWidth());
+        szAngleMinusButton->setSizePolicy(sizePolicy);
 
-        gridLayout_4->addWidget(pushButton_9, 2, 2, 1, 1);
+        gridLayout_4->addWidget(szAngleMinusButton, 2, 2, 1, 1);
 
 
         horizontalLayout_8->addLayout(gridLayout_4);
@@ -415,33 +421,22 @@ public:
         gridLayout_5 = new QGridLayout();
         gridLayout_5->setSpacing(6);
         gridLayout_5->setObjectName(QStringLiteral("gridLayout_5"));
-        radioButton = new QRadioButton(satelliteTab);
-        radioButton->setObjectName(QStringLiteral("radioButton"));
-        sizePolicy.setHeightForWidth(radioButton->sizePolicy().hasHeightForWidth());
-        radioButton->setSizePolicy(sizePolicy);
-
-        gridLayout_5->addWidget(radioButton, 0, 0, 1, 2);
-
-        radioButton_2 = new QRadioButton(satelliteTab);
-        radioButton_2->setObjectName(QStringLiteral("radioButton_2"));
-        sizePolicy.setHeightForWidth(radioButton_2->sizePolicy().hasHeightForWidth());
-        radioButton_2->setSizePolicy(sizePolicy);
-
-        gridLayout_5->addWidget(radioButton_2, 1, 0, 1, 2);
-
         label_6 = new QLabel(satelliteTab);
         label_6->setObjectName(QStringLiteral("label_6"));
         sizePolicy.setHeightForWidth(label_6->sizePolicy().hasHeightForWidth());
         label_6->setSizePolicy(sizePolicy);
 
-        gridLayout_5->addWidget(label_6, 2, 0, 1, 1);
+        gridLayout_5->addWidget(label_6, 0, 0, 1, 1);
 
-        spinBox = new QSpinBox(satelliteTab);
-        spinBox->setObjectName(QStringLiteral("spinBox"));
-        sizePolicy.setHeightForWidth(spinBox->sizePolicy().hasHeightForWidth());
-        spinBox->setSizePolicy(sizePolicy);
+        sangleSpinBox = new QSpinBox(satelliteTab);
+        sangleSpinBox->setObjectName(QStringLiteral("sangleSpinBox"));
+        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(sangleSpinBox->sizePolicy().hasHeightForWidth());
+        sangleSpinBox->setSizePolicy(sizePolicy1);
 
-        gridLayout_5->addWidget(spinBox, 2, 1, 1, 1);
+        gridLayout_5->addWidget(sangleSpinBox, 0, 1, 1, 1);
 
 
         horizontalLayout_8->addLayout(gridLayout_5);
@@ -468,7 +463,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 907, 23));
+        menuBar->setGeometry(QRect(0, 0, 571, 23));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -479,7 +474,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -496,22 +491,22 @@ public:
         turnleftButton->setText(QApplication::translate("MainWindow", "turnleft", 0));
         turnrightButton->setText(QApplication::translate("MainWindow", "turnright", 0));
         backButton->setText(QApplication::translate("MainWindow", "backward", 0));
-        stepRadioButton->setText(QApplication::translate("MainWindow", "step mode", 0));
-        sustainRadioButton->setText(QApplication::translate("MainWindow", "sustain mode", 0));
-        label->setText(QApplication::translate("MainWindow", "Distance", 0));
-        label_2->setText(QApplication::translate("MainWindow", "angle", 0));
+        label->setText(QApplication::translate("MainWindow", "SPEED", 0));
+        label_2->setText(QApplication::translate("MainWindow", "DISTANCE", 0));
+        label_3->setText(QApplication::translate("MainWindow", "ANGLE", 0));
+        speedLineEdit->setText(QApplication::translate("MainWindow", "5", 0));
+        distanceLineEdit->setText(QApplication::translate("MainWindow", "10", 0));
+        angleLineEdit->setText(QApplication::translate("MainWindow", "90", 0));
         tabWidget->setTabText(tabWidget->indexOf(carTab), QApplication::translate("MainWindow", "car", 0));
-        pushButton->setText(QApplication::translate("MainWindow", "connect", 0));
-        pushButton_4->setText(QApplication::translate("MainWindow", "X+", 0));
-        pushButton_5->setText(QApplication::translate("MainWindow", "X-", 0));
-        pushButton_2->setText(QApplication::translate("MainWindow", "pause", 0));
-        pushButton_6->setText(QApplication::translate("MainWindow", "Y+", 0));
-        pushButton_7->setText(QApplication::translate("MainWindow", "Y-", 0));
-        pushButton_3->setText(QApplication::translate("MainWindow", "save", 0));
-        pushButton_8->setText(QApplication::translate("MainWindow", "Z+", 0));
-        pushButton_9->setText(QApplication::translate("MainWindow", " Z-", 0));
-        radioButton->setText(QApplication::translate("MainWindow", "RadioButton", 0));
-        radioButton_2->setText(QApplication::translate("MainWindow", "RadioButton", 0));
+        sconnectButton->setText(QApplication::translate("MainWindow", "connect", 0));
+        sxAnglePlusButton->setText(QApplication::translate("MainWindow", "X+", 0));
+        sxAngleMinusButton->setText(QApplication::translate("MainWindow", "X-", 0));
+        spauseButton->setText(QApplication::translate("MainWindow", "pause", 0));
+        syAnglePlusButton->setText(QApplication::translate("MainWindow", "Y+", 0));
+        syAngleMinusButton->setText(QApplication::translate("MainWindow", "Y-", 0));
+        ssaveButton->setText(QApplication::translate("MainWindow", "save", 0));
+        szAnglePlusButton->setText(QApplication::translate("MainWindow", "Z+", 0));
+        szAngleMinusButton->setText(QApplication::translate("MainWindow", " Z-", 0));
         label_6->setText(QApplication::translate("MainWindow", "angle", 0));
         tabWidget->setTabText(tabWidget->indexOf(satelliteTab), QApplication::translate("MainWindow", "satellite", 0));
     } // retranslateUi

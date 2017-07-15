@@ -3,6 +3,12 @@
 
 #include <QObject>
 #include <common.h>
+#include <QUdpSocket>
+#include <QHostInfo>
+#include <QProcess>
+#include <QNetworkInterface>
+#include <QString>
+#include <QDebug>
 
 class QUdpSocket;
 
@@ -22,10 +28,19 @@ signals:
     void backMessage(QString,int);
 public slots:
     void sendMessage(QString m,int tabmode);
+    void setCarIpAddress(QString ip);
+    void setSatelliteIpAddress(QString ip);
+
 protected:    
+    QHostAddress CarIpAddress;//小车ip地址
+    QHostAddress SatelliteIpAddress;
+
 private:
     QUdpSocket *UdpSocket;
     qint16 Port;
+
+
+
 private slots:
     void processPendingDatagrams();
 

@@ -6,13 +6,15 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
-    _media(0)
+    _media(0),
+    _smedia(0)
 {
     TabMode = TABMODE_CAR;
     UdpCom = new UDPCOM(this);
     _instance = new VlcInstance(VlcCommon::args(),this);
     _player = new VlcMediaPlayer(_instance);
-
+    _sinstance = new VlcInstance(VlcCommon::args(),this);
+    _splayer = new VlcMediaPlayer(_sinstance);
     //default set
     CarUrl = FIXEDCARURL;
     SatelliteUrl = FIXEDSATELLITEURL;
@@ -154,15 +156,16 @@ void MainWindow::SSConnect()
 {
     QObject::connect(ui->sendButton,SIGNAL(clicked(bool)),this,SLOT(commandSend()));//发送指令
     QObject::connect(UdpCom,SIGNAL(backMessage(QString,int)),this,SLOT(messageBrowerPrint(QString,int)));//回复显示
-    QObject::connect(ui->connectButton,SIGNAL(clicked(bool)),this,SLOT(openUrl()));
+    QObject::connect(ui->connectButton,SIGNAL(clicked(bool)),this,SLOT(openCarUrl()));
     QObject::connect(ui->MessageBrowser,SIGNAL(textChanged()),this,SLOT(browserAutoScroll()));//textbrowser自动滚到最下面
     QObject::connect(ui->forwardButton,SIGNAL(clicked(bool)),this,SLOT(carCommandForward()));
     QObject::connect(ui->backButton,SIGNAL(clicked(bool)),this,SLOT(carCommandBackward()));
     QObject::connect(ui->turnleftButton,SIGNAL(clicked(bool)),this,SLOT(carCommandTurnLeft()));
     QObject::connect(ui->turnrightButton,SIGNAL(clicked(bool)),this,SLOT(carCommandTurnRight()));
+    QObject::connect(ui->sconnectButton,SIGNAL(clicked(bool)),this,SLOT(openSatelliteUrl())); 
 }
 
-void MainWindow::openUrl()
+void MainWindow::openCarUrl()
 {
 
     if (CarUrl.isEmpty())
@@ -172,6 +175,17 @@ void MainWindow::openUrl()
 
     _player->open(_media);
 }
+
+void MainWindow::openSatelliteUrl()
+{
+    if (SatelliteUrl.isEmpty())
+        return;
+
+    _smedia = new VlcMedia(SatelliteUrl, _sinstance);
+
+    _splayer->open(_smedia);
+}
+
 
 void MainWindow::browserAutoScroll()
 {
